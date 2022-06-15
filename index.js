@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const app = express();
 //const http = require("http");
 //const { Server } = require("socket.io");
+var https = require("https");
 const cors = require("cors");
 const helmet = require("helmet");
 const user = require("./routes/user");
@@ -55,4 +56,18 @@ app.get("/", (req, res) => {
   return res.status(200).send("Application is running");
 });
 
-app.listen(PORT, () => console.log(`Server is started at ${PORT}`));
+https
+  .createServer(
+    {
+      // key: fs.readFileSync("server.key"),
+      // cert: fs.readFileSync("server.cert"),
+    },
+    app
+  )
+  .listen(PORT, function () {
+    console.log(
+      "Example app listening on port 3000! Go to https://localhost:3000/"
+    );
+  });
+
+//app.listen(PORT, () => console.log(`Server is started at ${PORT}`));
