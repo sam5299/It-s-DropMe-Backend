@@ -56,18 +56,18 @@ app.get("/", (req, res) => {
   return res.status(200).send("Application is running");
 });
 
-https
-  .createServer(
-    {
-      // key: fs.readFileSync("server.key"),
-      // cert: fs.readFileSync("server.cert"),
-    },
-    app
-  )
-  .listen(PORT, function () {
-    console.log(
-      "Example app listening on port 3000! Go to https://localhost:3000/"
-    );
-  });
+// https
+//   .createServer(
+//     {
+//       // key: fs.readFileSync("server.key"),
+//       // cert: fs.readFileSync("server.cert"),
+//     },
+//     app
+//   )
+//   .listen(PORT, function () {
+//     console.log(
+//       "Example app listening on port 3000! Go to https://localhost:3000/"
+//     );
+//   });
 
-//app.listen(PORT, () => console.log(`Server is started at ${PORT}`));
+app.listen(PORT, () => console.log(`Server is started at ${PORT}`));
