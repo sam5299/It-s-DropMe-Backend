@@ -51,4 +51,8 @@ mongoose
   .then(() => console.log("Connected to dropMe_sample"))
   .catch((err) => console.log("error connecting to database:", err));
 
+app.get("/", (req, res) => {
+  return res.status(200).send("Application is running");
+});
+
 app.listen(PORT, () => console.log(`Server is started at ${PORT}`));
