@@ -101,7 +101,7 @@ async function isLicenseDetailsPresent(userId) {
 async function validateLicenseNumber(licenseNumber) {
   let joiDrivingLicenseSchema = Joi.object({
     licenseNumber: Joi.string().pattern(
-      /^(([A-Z]{2}[0-9]{2})( )|([A-Z]{1,2}-[0-9]{2}))((19|20)[0-9][0-9])[0-9]{7}$/
+      /^(([A-Z]{2}[0-9]{2})( )|([A-Z]{2}-[0-9]{2}))((19|20)[0-9][0-9])[0-9]{7}$/
     ),
   });
   return await joiDrivingLicenseSchema.validate(licenseNumber);

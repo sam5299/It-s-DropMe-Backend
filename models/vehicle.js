@@ -40,7 +40,7 @@ const Vehicle = mongoose.model("vehicle", vehicleSchema);
 function validateVehicleDetails(vehicleData) {
   let joiVehicleSchema = Joi.object({
     vehicleNumber: Joi.string()
-      .regex(/^[A-Z]{2} [0-9]{2,3} [A-Z]{2} [0-9]{1,4}$/)
+      .regex(/^[A-Z]{2} [0-9]{2,3} [A-Z]{1,2} [0-9]{1,4}$/)
       .required()
       .messages({
         "object.regex": "Please enter valid vehicle number",
