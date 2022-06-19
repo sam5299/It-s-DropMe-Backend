@@ -76,7 +76,7 @@ async function validateLogin(loginData) {
       .pattern(/[7-9]{1}[0-9]{9}/)
       .required(),
     password: Joi.string().required(),
-    notificationToken: Joi.string()
+    notificationToken: Joi.string(),
   });
   return await schema.validate(loginData);
 }
@@ -101,7 +101,7 @@ async function isLicenseDetailsPresent(userId) {
 async function validateLicenseNumber(licenseNumber) {
   let joiDrivingLicenseSchema = Joi.object({
     licenseNumber: Joi.string().pattern(
-      /^(([A-Z]{2}[0-9]{2})( )|([A-Z]{2}-[0-9]{2}))((19|20)[0-9][0-9])[0-9]{7}$/
+      /^(([A-Z]{2}[0-9]{2})( )|([A-Z]{1,2}-[0-9]{2}))((19|20)[0-9][0-9])[0-9]{7}$/
     ),
   });
   return await joiDrivingLicenseSchema.validate(licenseNumber);
@@ -116,7 +116,7 @@ async function isLicenseNumberExists(licenseNum) {
 async function updateUserLicenseDetails(userId, licenseNumber, licenseImage) {
   //console.log("uploading license image:" + licenseImage);
   let user = await User.findOne({ userId: userId });
- // console.log("User found:", user);
+  // console.log("User found:", user);
   user.licenseNumber = licenseNumber;
   user.licenseImage = licenseImage;
   return user.save();
