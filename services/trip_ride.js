@@ -45,6 +45,7 @@ async function getPassengersBookedTrip(passengerId) {
 
 // return all booked rides of the raider
 async function getAllBookedRides(raiderId) {
+  console.log("getting booked ride of rider...");
   return await TripRide.find({
     RaiderId: raiderId,
     $or: [{ status: "Booked" }, { status: "Initiated" }],
