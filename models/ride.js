@@ -67,7 +67,7 @@ function validateRideDetails(rideData) {
     rideFor: Joi.string().valid("Male", "Female", "Both").required(),
     rideType: Joi.string().valid("Free", "Paid").required(),
     vehicleNumber: Joi.string()
-      .regex(/^[A-Z]{2} [0-9]{2,3} [A-Z]{2} [0-9]{1,4}$/)
+      // .regex(/^[A-Z]{2} [0-9]{2,3} [A-Z]{2} [0-9]{1,4}$/)
       .required()
       .messages({
         "object.regex": "Please enter valid vehicle number",
